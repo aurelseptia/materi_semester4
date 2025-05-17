@@ -1,0 +1,4 @@
+FROM ubuntu:20.04
+LABEL maintainer="aurelseptia7@gmail.com"
+RUN apt-get update
+CMD ["echo", "Ini adalah container.."]
