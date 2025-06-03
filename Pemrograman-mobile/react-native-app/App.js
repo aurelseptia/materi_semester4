@@ -9,6 +9,7 @@ import ProfilScreen from './screens/ProfilScreen';
 import InfoScreen from './screens/InfoScreen';
 import DetailScreen from './screens/DetailScreen';
 import LoginScreen from './screens/LoginScreen';
+import FavScreen from './screens/FavScreen'; // import FavScreen
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -23,8 +24,18 @@ function HomeStack() {
   );
 }
 
+// Stack untuk Favorite + Detail
+function FavStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="FavScreen" component={FavScreen} options={{ title: 'Favorit' }} />
+      <Stack.Screen name="DetailScreen" component={DetailScreen} options={{ title: 'Detail Produk' }} />
+    </Stack.Navigator>
+  );
+}
+
 // Tab Navigasi utama
-function MainTabs() {
+function MainTabs({ logout }) {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -33,6 +44,8 @@ function MainTabs() {
 
           if (route.name === 'Home') {
             iconName = focused ? 'home' : 'home-outline';
+          } else if (route.name === 'Favorit') {
+            iconName = focused ? 'heart' : 'heart-outline';
           } else if (route.name === 'Profil') {
             iconName = focused ? 'person' : 'person-outline';
           }
@@ -53,7 +66,11 @@ function MainTabs() {
       })}
     >
       <Tab.Screen name="Home" component={HomeStack} />
-      <Tab.Screen name="Profil" component={ProfilScreen} />
+      <Tab.Screen name="Favorit" component={FavStack} />
+      {/* Pass logout prop ke ProfilScreen */}
+      <Tab.Screen name="Profil">
+        {(props) => <ProfilScreen {...props} logout={logout} />}
+      </Tab.Screen>
     </Tab.Navigator>
   );
 }
@@ -61,10 +78,14 @@ function MainTabs() {
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
   return (
     <NavigationContainer>
       {isLoggedIn ? (
-        <MainTabs />
+        <MainTabs logout={handleLogout} />
       ) : (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Login">
