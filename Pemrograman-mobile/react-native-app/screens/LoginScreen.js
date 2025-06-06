@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 
 const dummyUser = {
-  email: 'user@example.com',
+  email:'orel6@gmail.com',
   password: '123456',
 };
 
@@ -47,7 +47,7 @@ export default function LoginScreen({ onLoginSuccess }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f0f4f7',
+    backgroundColor: '#D2B48C',
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 20,
@@ -71,14 +71,14 @@ const styles = StyleSheet.create({
   button: {
     width: '100%',
     height: 50,
-    backgroundColor: '#0a84ff',
+    backgroundColor: '#A0522D',
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 10,
   },
   buttonText: {
-    color: '#fff',
+    color: '#F5F5DC',
     fontSize: 18,
     fontWeight: '600',
   },
