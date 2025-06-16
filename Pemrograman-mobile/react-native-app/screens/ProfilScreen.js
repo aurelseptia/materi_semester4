@@ -37,7 +37,7 @@ export default function ProfilScreen({ logout }) {
       <View style={[styles.card, darkMode && styles.darkCard]}>
         <Image
           source={{
-            uri: 'https://i.pravatar.cc/150?img=65',
+            uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Moon_jellyfish_at_Gota_Sagher.JPG/250px-Moon_jellyfish_at_Gota_Sagher.JPG',
           }}
           style={styles.avatar}
         />
@@ -85,6 +85,7 @@ export default function ProfilScreen({ logout }) {
         </TouchableOpacity>
       </View>
     </View>
+    
   );
 }
 
@@ -112,7 +113,7 @@ const styles = StyleSheet.create({
     shadowRadius: 12,
   },
   darkCard: {
-    backgroundColor: '#1e1e1e',
+    backgroundColor: '#E2A8FE',
   },
   avatar: {
     width: 110,
@@ -150,7 +151,7 @@ const styles = StyleSheet.create({
     color: '#eee',
   },
   button: {
-    backgroundColor: '#007bff',
+    backgroundColor: '#120632',
     paddingVertical: 14,
     paddingHorizontal: 30,
     borderRadius: 12,
@@ -159,7 +160,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logoutButton: {
-    backgroundColor: '#dc3545',
+    backgroundColor: '#&E4EAC',
     marginTop: 30,
   },
   buttonText: {
